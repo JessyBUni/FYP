@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             x:Class="detail_test.Views.MenuPage" 
+             Title="Menu"
+             xmlns:local="clr-namespace:detail_test.ViewModels"
+             BackgroundImage="{x:Static local:Framework.BackgroundImage}">
+    <StackLayout VerticalOptions="FillAndExpand">
+        <ListView x:Name="ListViewMenu"
+                  BackgroundColor="{x:Static local:Framework.Complementary1Colour}"
+                  HasUnevenRows="True">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid Padding="10">
+                            <Label Text="{Binding Title}" 
+                                   TextColor="{x:Static local:Framework.SecondaryColour}"
+                                   FontSize="20" />
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+</ContentPage>
