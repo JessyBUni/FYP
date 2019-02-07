@@ -33,31 +33,34 @@ namespace detail_test.ViewModels
             }
         }
         public ICommand SubmitCommand { protected set; get; }
-        public bool SubmitInfo (out int subLevel, out int progress)
+        public bool SubmitInfo (out int subLevel, out int progress,out string ServerCon)
         { 
             if (email==null || password == null)
             {
-                /* turn on for deploy
+                //turn on for deploy
                 DisplayInvalidLoginPrompt();
                 subLevel = 0;
-                progress = 0;              
-                return false;*/
-                subLevel = 1;
-                progress = 3;
-                return true; // turn off for deploy
+                progress = 0;
+                ServerCon = "";             
+                return false;
+                //subLevel = 1;
+                //progress = 3;
+                //return true; // turn off for deploy
             }
-            MockServer mockServer = new MockServer();
-            bool b= mockServer.checkServer(email,password,true, out int sub, out int prog);
+            MockServer mockServer = new MockServer("",out string ServerConn);
+            bool b= mockServer.checkServer(ServerConn,email, password,true, out int sub, out int prog);
             if (b)
             {
                 subLevel = sub;
                 progress = prog;
+                ServerCon = ServerConn;
                 return true;
             }
             else
             {
                 subLevel = 0;
                 progress = 0;
+                ServerCon = ServerConn;
                 return false;
             }
 

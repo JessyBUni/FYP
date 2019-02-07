@@ -7,10 +7,6 @@
              xmlns:local="clr-namespace:detail_test.ViewModels"
              BackgroundImage="{x:Static local:Framework.BackgroundImage}"
              >
-    
-    <ContentPage.ToolbarItems>
-
-    </ContentPage.ToolbarItems>
     <StackLayout>
         <ListView x:Name="ItemsListView"
                   ItemsSource="{Binding Items}" 

@@ -1,7 +1,7 @@
 ﻿using System;
 namespace detail_test.Services
 {
-    public class User
+    [Serializable] public class User
     {
 
         public string Username;

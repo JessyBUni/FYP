@@ -1,41 +1,13 @@
 ﻿<Properties StartupConfiguration="{24CE3C36-16B9-426D-AA0C-5961ECF8D88C}|Default">
   <MonoDevelop.Ide.ItemProperties.detail__test.UITests FirstBuild="True" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="detail_test/Services/MockDataStore.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="detail_test/Views/ItemsPage.xaml">
     <Files>
-      <File FileName="detail_test/Views/MainPage.xaml" Line="8" Column="30" />
-      <File FileName="detail_test/Views/MainPage.xaml.cs" Line="37" Column="76" />
-      <File FileName="detail_test/Views/ItemsPage.xaml" Line="39" Column="15" />
-      <File FileName="detail_test/Views/ItemsPage.xaml.cs" Line="37" Column="48" />
-      <File FileName="detail_test/ViewModels/ItemsViewModel.cs" Line="23" Column="13" />
-      <File FileName="detail_test/ViewModels/ItemDetailViewModel.cs" Line="1" Column="1" />
-      <File FileName="detail_test/Services/MockDataStore.cs" Line="283" Column="26" />
-      <File FileName="detail_test/Services/MockServer.cs" Line="30" Column="35" />
-      <File FileName="detail_test/Models/User.cs" Line="50" Column="30" />
+      <File FileName="detail_test/Views/ItemsPage.xaml.cs" Line="23" Column="26" />
+      <File FileName="detail_test/ViewModels/ItemsViewModel.cs" Line="18" Column="31" />
+      <File FileName="detail_test/Views/MainPage.xaml.cs" Line="49" Column="80" />
+      <File FileName="detail_test/Views/MainPage.xaml" Line="19" Column="33" />
+      <File FileName="detail_test/Views/ItemsPage.xaml" Line="12" Column="5" />
     </Files>
-    <Pads>
-      <Pad Id="ProjectPad">
-        <State name="__root__">
-          <Node name="detail_test" expanded="True">
-            <Node name="detail_test" expanded="True">
-              <Node name="Dependencies" expanded="True">
-                <Node name="PackageDependencies" expanded="True" />
-              </Node>
-              <Node name="Models" expanded="True" />
-              <Node name="Services" expanded="True">
-                <Node name="MockDataStore.cs" selected="True" />
-              </Node>
-              <Node name="ViewModels" expanded="True" />
-              <Node name="Views" expanded="True">
-                <Node name="ItemDetailPage.xaml" expanded="True" />
-                <Node name="ItemsPage.xaml" expanded="True" />
-                <Node name="MainPage.xaml" expanded="True" />
-              </Node>
-              <Node name="App.xaml" expanded="True" />
-            </Node>
-          </Node>
-        </State>
-      </Pad>
-    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.ItemProperties.detail__test.iOS automaticSigning="False" />
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />

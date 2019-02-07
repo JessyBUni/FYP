@@ -63,7 +63,7 @@ namespace detail_test.Services
                     "by another persons important, however the most valuable " +
                     "event is learning to be your own witness. Learning to " +
                     "listen to your heart as well as your head is the key to " +
-                    "this. Creativity is a route to your hearts expression."
+                    "this. Creativity is a route to your hearts expression.",
                     ID=2,
                     },
 

@@ -7,13 +7,23 @@ using Xamarin.Forms.Xaml;
 
 namespace detail_test.Views
 {
+  
+    public class DataStore
+    {
+        public int Progress { get; set; }
+        public int Subscription { get; set; }
+        public string ServerConn { get; set; }
+    }
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MainPage : MasterDetailPage
     {
-
+        DataStore Info = new DataStore();
         Dictionary<int, NavigationPage> MenuPages = new Dictionary<int, NavigationPage>();
-        public MainPage( int progress, int subLevel)
+        public MainPage( int Progress, int subLevel, string ServerCon)
         {
+            Info.Progress=Progress;
+            Info.Subscription = subLevel;
+            Info.ServerConn = ServerCon;
 
             InitializeComponent();
             //Application.Current.MainPage = this;
@@ -32,6 +42,10 @@ namespace detail_test.Views
                 switch (id)
                 {
                     case (int)MenuItemType.Browse:
+                    
+                        //var itemspage = new ItemsPage();
+                   
+                        //MenuPages.Add(id, new NavigationPage(itemspage));
                         MenuPages.Add(id, new NavigationPage(new ItemsPage()));
                         break;
                     case (int)MenuItemType.About:

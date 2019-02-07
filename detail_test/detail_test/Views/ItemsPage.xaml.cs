@@ -17,9 +17,16 @@ namespace detail_test.Views
     public partial class ItemsPage : ContentPage
     {
         ItemsViewModel viewModel;
+        int progress = 0;
+        int subscription = 0;
 
         public ItemsPage()
+        //public ItemsPage ( int Progress, int Subscription, string ServerCon)
+        ///public ItemsPage(DataStore Info)
         {
+            //progress = Progress;
+            //subscription = subLevel;
+
             InitializeComponent();
 
             BindingContext = viewModel = new ItemsViewModel();
@@ -30,6 +37,8 @@ namespace detail_test.Views
             var item = args.SelectedItem as Item;
             if (item == null)
                 return;
+            if (item.ID > progress) { return; }
+            //if (subscription == 1 && item.ID != 1) { return; }
 
             await Navigation.PushAsync(new ItemDetailPage(new ItemDetailViewModel(item)));
 
