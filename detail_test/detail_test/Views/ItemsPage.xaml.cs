@@ -17,15 +17,9 @@ namespace detail_test.Views
     public partial class ItemsPage : ContentPage
     {
         ItemsViewModel viewModel;
-        int progress = 0;
-        int subscription = 0;
 
         public ItemsPage()
-        //public ItemsPage ( int Progress, int Subscription, string ServerCon)
-        ///public ItemsPage(DataStore Info)
         {
-            //progress = Progress;
-            //subscription = subLevel;
 
             InitializeComponent();
 
@@ -37,19 +31,19 @@ namespace detail_test.Views
             var item = args.SelectedItem as Item;
             if (item == null)
                 return;
-            if (item.ID > progress) { return; }
+            //if (item.ID > progress) { return; }
             //if (subscription == 1 && item.ID != 1) { return; }
 
             await Navigation.PushAsync(new ItemDetailPage(new ItemDetailViewModel(item)));
 
             // Manually deselect item.
-            ItemsListView.SelectedItem = null;
+            AcessItemsListView.SelectedItem = null;
         }
 
-        async void AddItem_Clicked(object sender, EventArgs e)
+        /*async void AddItem_Clicked(object sender, EventArgs e)
         {
             await Navigation.PushModalAsync(new NavigationPage(new NewItemPage()));
-        }
+        }*/
 
         protected override void OnAppearing()
         {

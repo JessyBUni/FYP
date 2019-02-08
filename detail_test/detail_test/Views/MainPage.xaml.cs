@@ -8,28 +8,24 @@ using Xamarin.Forms.Xaml;
 namespace detail_test.Views
 {
   
-    public class DataStore
-    {
-        public int Progress { get; set; }
-        public int Subscription { get; set; }
-        public string ServerConn { get; set; }
-    }
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MainPage : MasterDetailPage
     {
-        DataStore Info = new DataStore();
-        Dictionary<int, NavigationPage> MenuPages = new Dictionary<int, NavigationPage>();
+        static public int Prog;
+        static public int Sub;
+        static public string SC;
+
         public MainPage( int Progress, int subLevel, string ServerCon)
         {
-            Info.Progress=Progress;
-            Info.Subscription = subLevel;
-            Info.ServerConn = ServerCon;
+            Prog=Progress;
+            Sub = subLevel;
+            SC = ServerCon;
 
             InitializeComponent();
             //Application.Current.MainPage = this;
             MasterBehavior = MasterBehavior.Popover;
 
-            MenuPages.Add((int)MenuItemType.Browse, (NavigationPage) Detail);
+            //MenuPages.Add((int)MenuItemType.Browse, (NavigationPage) Detail);
             //MenuPages.Add((int)MenuItemType.About, (NavigationPage)Detail);
             //MenuPages.Add((int)MenuItemType.Settings, (NavigationPage)Detail);
 
@@ -37,37 +33,36 @@ namespace detail_test.Views
 
         public async Task NavigateFromMenu(int id)
         {
-            if (!MenuPages.ContainsKey(id))
-            {
+            //if (!MenuPages.ContainsKey(id))
+            //{
                 switch (id)
                 {
                     case (int)MenuItemType.Browse:
-                    
-                        //var itemspage = new ItemsPage();
-                   
-                        //MenuPages.Add(id, new NavigationPage(itemspage));
-                        MenuPages.Add(id, new NavigationPage(new ItemsPage()));
+                        Detail = new NavigationPage(new ItemsPage( ));
+                       // MenuPages.Add(id, new NavigationPage(new ItemsPage()));
                         break;
                     case (int)MenuItemType.About:
-                        MenuPages.Add(id, new NavigationPage(new AboutPage()));
+                        Detail = new NavigationPage(new AboutPage());
+                        //MenuPages.Add(id, new NavigationPage(new AboutPage()));
                         break;
                     case (int)MenuItemType.Settings:
-                        MenuPages.Add(id, new NavigationPage(new SettingsPage()));
+                        Detail = new NavigationPage(new SettingsPage());
+                        //MenuPages.Add(id, new NavigationPage(new SettingsPage()));
                         break;
                 }
-            }
+            //}
 
-            var newPage = MenuPages[id];
+           /* var newPage = MenuPages[id];
 
             if (newPage != null && Detail != newPage)
             {
-                Detail = newPage;
+                Detail = newPage;*/
 
                 if (Device.RuntimePlatform == Device.Android)
                     await Task.Delay(100);
 
                 IsPresented = false;
-            }
+           // }
         }
     }
 }

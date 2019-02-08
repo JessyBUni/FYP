@@ -8,8 +8,8 @@
              BackgroundImage="{x:Static local:Framework.BackgroundImage}"
              >
     <StackLayout>
-        <ListView x:Name="ItemsListView"
-                  ItemsSource="{Binding Items}" 
+        <ListView x:Name="AcessItemsListView"
+                  ItemsSource="{Binding Itemsa}" 
                   VerticalOptions="FillAndExpand" 
                   HasUnevenRows="true" 
                   RefreshCommand="{Binding LoadItemsCommand}" 
@@ -31,5 +31,25 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
+        <ListView x:Name="LockItemsListView"
+                  ItemsSource="{Binding Itemsl}" 
+                  VerticalOptions="FillAndExpand" 
+                  HasUnevenRows="true" 
+>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Padding="10">
+                            <Label Text="{Binding Text}" 
+                                   LineBreakMode="NoWrap" 
+                                   Style="{DynamicResource ListItemTextStyle}" 
+                                   FontSize="16" 
+                                 TextColor="{x:Static local:Framework.SecondaryColour}"/>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        
     </StackLayout>
 </ContentPage>

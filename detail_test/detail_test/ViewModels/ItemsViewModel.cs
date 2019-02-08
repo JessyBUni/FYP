@@ -13,12 +13,16 @@ namespace detail_test.ViewModels
     public class ItemsViewModel : BaseViewModel
     {
         public ObservableCollection<Item> Items { get; set; }
+        public ObservableCollection<Item> Itemsa { get; set; }
+        public ObservableCollection<Item> Itemsl { get; set; }
         public Command LoadItemsCommand { get; set; }
 
         public ItemsViewModel()
         {
             Title = "Browse";
             Items = new ObservableCollection<Item>();
+            Itemsa = new ObservableCollection<Item>();
+            Itemsl = new ObservableCollection<Item>();
             LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
 
             MessagingCenter.Subscribe<NewItemPage, Item>(this, "AddItem", async (obj, item) =>
@@ -39,10 +43,22 @@ namespace detail_test.ViewModels
             try
             {
                 Items.Clear();
+                Itemsa.Clear();
+                Itemsl.Clear();
+                int i = 0;
                 var items = await DataStore.GetItemsAsync(true);
                 foreach (var item in items)
                 {
                     Items.Add(item);
+                    if (i<= MainPage.Prog)// new
+                    {
+                        Itemsa.Add(item);
+                    }
+                    else
+                    {
+                        Itemsl.Add(item);
+                    }
+                    i++;// new end
                 }
             }
             catch (Exception ex)
